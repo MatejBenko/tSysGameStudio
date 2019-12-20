@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GameStudioServer {
 	public static void main(String[] args) {
-		SpringApplication.run(GameStudioServer.class, args);
-	}
+        SpringApplication.run(GameStudioServer.class, args);
+    }	
 }

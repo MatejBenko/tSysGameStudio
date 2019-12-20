@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>GuessTheNumber</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div th:replace="~{fragments :: header}"/>
+	<a href="/guess">-- New game --</a><br>
+	<form action="/guess" metod="get" class="container">
+		<input type="text" placeholder="Your Number" name="input" autofocus> <br> 
+		<button type="submit" class="button" value="Login">Send</button>
+	</form>
+	<div th:text="${@guessNumberController.message}" />
+
+
+
+	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('guess')}" />
+</body>
+</html>

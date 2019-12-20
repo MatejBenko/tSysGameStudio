@@ -1,32 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="refresh" content="1">
 	<title>Ships</title>
-	<style type="text/css">
-		.Y{
-			display: flex;
-			flex-direction: column;	
-		}
-		.X{
-			display: flex;
-			flex-direction: row;	
-		}
-		.you{
-			display: inline-block;
-			padding: 20px;
-			background-color: orange;
-		}
-		.opponent{
-			display: inline-block;
-			padding: 20px;
-			background-color: aquamarine;
-		}
-	</style>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<meta http-equiv="refresh" content="1">
 </head>
 <body>
-	<h2>Ships</h2>
+	<div th:replace="~{fragments :: header}"/>
 	<div th:utext="${@shipsController.openGameSessions}"/>
 
+	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('ships')}" />
 </body>
 </html>

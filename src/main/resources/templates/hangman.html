@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Hang Man</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div th:replace="~{fragments :: header}"/>
+	<a href="/hangman/new">-- New game --</a><br>
+	<form action="/hangman" metod="get" class="container">
+		<input type="text" placeholder="Guess Name" name="input" autofocus><br> 
+		<button type="submit" class="button" value="Login">Send</button>
+	</form>
+	<div style="margin: 10px;" th:text="${@hangManController.message}" />
+	<div style="margin: 10px;" th:text="${@hangManController.hint}" />
+	<!-- <div style="margin: 10px;" th:utext="${@hangManController.score}" /> -->
+	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('hangman')}" />
+</body>
+</html>

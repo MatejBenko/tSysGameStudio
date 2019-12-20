@@ -1,0 +1,67 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	background-color: #665555;
+}
+a{
+	color: #58D68D;
+	text-decoration: none;
+}
+header>a>div{
+	color: #58D68D;
+	padding: 10px;
+	font-size: 25px;
+	float: left;
+}
+header>a>div:hover{
+	float: left;
+	background-color: #58D68D;
+	color: #776666;
+	padding: 5px,50px,5px,50px;
+	text-decoration: none;
+	font-size: 25px;
+	border-radius: 0px 0px 5px 5px;
+}
+.floatRight{
+	float: right;
+}
+.floatLeft{
+	float: left;
+}
+.flexRow{
+	display: flex;
+	flex-direction: row;
+}
+.flexColumn{
+	display: flex;
+	flex-direction: column;
+}
+	.flLeft{
+		float: left;
+	}
+	.flRight{
+		float: right;
+	}
+
+		.Y{
+			display: flex;
+			flex-direction: column;	
+		}
+		.X{
+			display: flex;
+			flex-direction: row;	
+		}
+		.you{
+			display: inline-block;
+			padding: 20px;
+			background-color: orange;
+		}
+		.opponent{
+			display: inline-block;
+			padding: 20px;
+			background-color: aquamarine;
+		}
+header{
+	padding-bottom: 50px;
+}

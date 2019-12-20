@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Puzzle</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div th:replace="~{fragments :: header}"/>
+	<a href="/puzzle/new">-- New game --</a><br>
+	<div th:if="${@puzzleController.solved}">
+		<h1>YOU SOLVED PUZZLE</h1>
+	</div>
+	<div th:if="${not @puzzleController.solved}">
+		<div th:utext="${@puzzleController.htmlField}" />
+	</div>
+
+	<!-- <div style="margin: 10px;" th:utext="${@hangManController.score}" /> -->
+
+
+	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('puzzle')}" />
+</body>
+</html>

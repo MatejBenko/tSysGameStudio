@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Minesweeper</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div th:replace="~{fragments :: header}"/>
+	
+	<div class="clear">
+		<div class="menuLeft">
+			<a href="/mini">-- New game --</a><br>
+		
+		</div>
+		<div>
+			<span th:if="${@miniController.marking}"><p>MARKING</p>
+				<a href='/mini/change'><img border="0" src='/images/mini/ON.jpg' width="50" height=auto></a>
+			</span>
+			<span th:if="${not @miniController.marking}"><p>OPENING</p>
+				<a href='/mini/change'> <img border="0"	src='/images/mini/OFF.jpg' width="50" height=auto></a>
+			</span>
+			<div th:if="${not @miniController.solved}">
+				<h1>YOU SOLVED MINESWEEPERS</h1>
+			</div>
+			<div th:if="${@miniController.solved}">
+				<div th:utext="${@miniController.htmlField}" />
+			</div>
+
+		</div>
+	</div>
+
+	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('mini')}" />
+</body>
+</html>
