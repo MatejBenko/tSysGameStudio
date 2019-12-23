@@ -26,7 +26,7 @@ public class MiniController {
 
 	@RequestMapping("/mini")
 	public String index() {
-		field = new Field(8, 8, 3);
+		field = new Field(8, 8, 6);
 		return "mini";
 	}
 
@@ -48,27 +48,21 @@ public class MiniController {
 		marking = !marking;
 		return "mini";
 	}
-
 	public String getHtmlField() {
-		@SuppressWarnings("resource")
-		Formatter f = new Formatter();
-
-		f.format("<table>\n");
-		for (int row = 0; row < field.getRowCount(); row++) {
-			f.format("<tr>\n");
-			for (int column = 0; column < field.getColumnCount(); column++) {
-				f.format("<td>\n");
-				Tile tile = field.getTile(row, column);
-
-					f.format("<a href='/mini/openTile?row=%d&column=%d'>", row, column);
-					f.format("<img src='/images/mini/%s.png'></a>", getImageName(tile));
-
-				f.format("</td>\n");
+		StringBuilder sb = new StringBuilder();
+		sb.append("<div>");
+		for (int i = 0; i < field.getRowCount(); i++) {
+			sb.append("<div class=\"flexRow\">");
+			for (int j = 0; j < field.getColumnCount(); j++) {
+				sb.append("<div class=\"flexColumn\">");
+				Tile tile = field.getTile(i, j);
+				sb.append("<img onclick=\"location.href = '/mini/openTile?row="+i+"&column="+j+"';\" src='/images/mini/"+getImageName(tile)+".png'>");
+				sb.append("</div>");
 			}
-			f.format("</tr>\n");
+			sb.append("</div>");
 		}
-		f.format("</table>\n");
-		return f.toString();
+		sb.append("</div>");
+		return sb.toString();
 	}
 
 	public String getImageName(Tile tile) {
@@ -90,7 +84,5 @@ public class MiniController {
 	public boolean isSolved() {
 		return field.isSolved();
 	}
-	
-	
 
 }

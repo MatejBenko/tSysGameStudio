@@ -9,27 +9,27 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
+import sk.tsystems.gamestudio.entity.Comment;
 import sk.tsystems.gamestudio.entity.Score;
 
 @Component
 @Transactional
-public class ScoreServiceJPA implements ScoreService {
-	
+public class CommentServiceJPA implements CommentService {
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
-	public void addScore(Score score) {
-		entityManager.persist(score);
+	public void addComment(Comment c) {
+		entityManager.persist(c);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Score> getTopScores(String game) {
+	public List<Comment> getComments(String game) {
 		try {
-			return (List<Score>) entityManager
-					.createQuery("select s from Score s where s.game = :game order by s.score desc")
-					.setParameter("game", game).setMaxResults(10).getResultList();
+			return (List<Comment>) entityManager.createQuery("select c from Comment c where c.game = :game")
+					.setParameter("game", game).getResultList();
 
 		} catch (NoResultException e) {
 			return null;

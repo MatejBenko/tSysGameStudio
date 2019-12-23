@@ -8,9 +8,9 @@
 		<a href="/"><div>HomePage</div></a>
 		<a href="/mini"><div>Minesweeper</div></a>
 		<a href="/puzzle"><div>Puzzle</div></a>
-		<a href="/guess"><div>GuessNumbe</div></a>
+		<a href="/guess"><div>GuessNumber</div></a>
 		<a href="/ships"><div>Ships</div></a>
-		<a href="/hangman"><div>HangMan</div></a>
+		<!-- <a href="/hangman"><div>HangMan</div></a> -->
 		<a th:if="${@mainController.logged}" class="flRight" href="/logout"><div>Logout</div></a>
 		<div th:if="${not @mainController.logged}" class="flRight">
 			<form action="/login">
@@ -21,8 +21,8 @@
 				<button type="submit" class="button" value="Login">Login</button>
 			</form>
 		</div>
-
 	</header>
+
 
 </body>
 </html>

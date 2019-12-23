@@ -15,6 +15,12 @@ public class Comment {
 
 	public Comment() {
 	}
+	
+	public Comment(String game, String player, String comment) {
+		this.username = player;
+		this.game = game;
+		this.content = comment;
+	}
 
 	public Comment(int ident, String username, String game) {
 		super();

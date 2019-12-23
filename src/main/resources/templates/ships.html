@@ -10,6 +10,16 @@
 	<div th:replace="~{fragments :: header}"/>
 	<div th:utext="${@shipsController.openGameSessions}"/>
 
-	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('ships')}" />
+	<div style="margin: 10px;" th:utext="${@mainController.getScoreForGame('ships')}" />
+	<div>
+		<div th:if="${@mainController.logged}">
+			<form action="/comment">
+				<input hidden type="text" name="game" value="ships"><br>
+				<input type="text" placeholder="comment" name="comment" required><br>
+				<button type="submit" class="button" value="Login">Comment</button>
+			</form>
+		</div>
+		<div style="margin: 10px;" th:utext="${@mainController.getCommentsForGame('ships')}" />
+	</div>
 </body>
 </html>

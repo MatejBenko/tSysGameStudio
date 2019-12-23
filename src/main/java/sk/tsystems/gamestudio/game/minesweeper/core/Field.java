@@ -208,15 +208,19 @@ public class Field {
 				for (int columnOffset = -1; columnOffset <= 1; columnOffset++) {
 					int actColumn = column + columnOffset;
 					if (actColumn >= 0 && actColumn < getColumnCount()) {
-						Clue clue = (Clue) tiles[row][column];
-						Tile tile = (Tile) tiles[actRow][actColumn];
-						if (tile instanceof Clue && tile.getState() == State.CLOSED && (clue.getValue() == 0)) {
-							tile.setState(State.OPEN);
-							if (clue.getValue() == 0) {
-								openAdjacentTiles(actRow, actColumn);
-							} else if (clue.getValue() != 0) {
-								openAdjacentTiles(row, column);
+						try {
+							Clue clue = (Clue) tiles[row][column];
+							Tile tile = (Tile) tiles[actRow][actColumn];
+							if (tile instanceof Clue && tile.getState() == State.CLOSED && (clue.getValue() == 0)) {
+								tile.setState(State.OPEN);
+								if (clue.getValue() == 0) {
+									openAdjacentTiles(actRow, actColumn);
+								} else if (clue.getValue() != 0) {
+									openAdjacentTiles(row, column);
+								}
 							}
+						} catch (Exception e) {
+							// TODO: handle exception
 						}
 					}
 				}

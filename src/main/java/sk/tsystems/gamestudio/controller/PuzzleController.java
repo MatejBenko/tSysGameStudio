@@ -54,7 +54,7 @@ public class PuzzleController {
 
 		return "puzzle";
 	}
-
+//
 //	public String getHtmlField() {
 //		Formatter f = new Formatter();
 //
@@ -81,9 +81,9 @@ public class PuzzleController {
 	public String getHtmlField() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<div>");
-		for (int i = 0; i < field.getRowCount(); i++) {
+		for (int i = 0; i < field.getColumnCount(); i++) {
 			sb.append("<div class=\"flexRow\">");
-			for (int j = 0; j < field.getColumnCount(); j++) {
+			for (int j = 0; j < field.getRowCount(); j++) {
 				Tile tile = field.getTile(i, j);
 				if (tile != null) {
 					sb.append("<div class=\"flexColumn\"><img onclick=\"location.href = '/puzzle/move?tile=" + tile.getValue() + "';\" src=\"/images/" + tile.getValue() + ".png\"></div>");

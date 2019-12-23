@@ -18,6 +18,16 @@
 	<!-- <div style="margin: 10px;" th:utext="${@hangManController.score}" /> -->
 
 
-	<div style="margin: 10px;" th:utext="${@commentsController.getScoreForGame('puzzle')}" />
+	<div style="margin: 10px;" th:utext="${@mainController.getScoreForGame('puzzle')}" />
+	<div>
+		<div th:if="${@mainController.logged}">
+			<form action="/comment">
+				<input hidden type="text" name="game" value="puzzle"><br>
+				<input type="text" placeholder="comment" name="comment" required><br>
+				<button type="submit" class="button" value="Login">Comment</button>
+			</form>
+		</div>
+		<div style="margin: 10px;" th:utext="${@mainController.getCommentsForGame('puzzle')}" />
+	</div>
 </body>
 </html>
